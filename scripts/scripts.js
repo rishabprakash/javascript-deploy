@@ -10,8 +10,8 @@ You are encouraged to use the provided naming convention for ease of review.
 /* create variables to hold the values for modelName and duration */
 
 // INSERT YOUR CODE HERE
-var modelName = "Model XYZ";
-var duration = 0;
+var Modelname = "Model XYZ";
+var timeDuration = 0;
 
 
 
@@ -30,15 +30,18 @@ var duration = 0;
 function recalculate()
 {
     let costLabel = document.getElementById("calculated-cost");
-    let totalCost = 0;
-    if (modelName === "Model XYZ") {
-        totalCost= duration*100;
+    let price = 0;
+    if (Modelname === "Model XYZ") {
+        price= timeDuration*100;
     }
-    else if( modelName === "Model CPRG"){
-        totalCost = duration*213;
+    else if( Modelname === "Model CPRG"){
+        price = timeDuration*213;
     } 
-
-    costLabel.innerHTML= totalCost
+    else{
+        price = 0
+    }
+    costLabel.innerHTML= price
+    recalculate();
 }
 
 
@@ -61,13 +64,13 @@ function recalculate()
 var nameOfModel = document.getElementById("model-button");
 function  changeModel(){
     let textOfModel = document.getElementById("model-text");
-    if (modelName ==="Model XYZ") {
-        modelName = "Model CPRG"
+    if (Modelname ==="Model XYZ") {
+        Modelname = "Model CPRG"
         textOfModel.innerHTML = "Model CPRG"
 
     }
-    else if(modelName === "Model CPRG"){
-        modelName = "Model XYZ"
+    else if(Modelname === "Model CPRG"){
+        Modelname = "Model XYZ"
         textOfModel.innerHTML="Model XYZ"
     }
 
@@ -101,9 +104,9 @@ function  changeModel(){
 var changeOfDuration = document.getElementById("duration-button");
 function changeDuration() {
     let textOfDuration = document.getElementById("duration-text");
-    let newDuration = prompt("please enter the new duration for renting robot");
-    duration = parseInt(newDuration);
-    textOfDuration.innerHTML = duration;
+    let recentDuration = prompt("please enter the new duration for renting robot");
+    timeDuration = parseInt(recentDuration);
+    textOfDuration.innerHTML = timeDuration;
     recalculate();
 }
     changeOfDuration.addEventListener("click", changeDuration);
